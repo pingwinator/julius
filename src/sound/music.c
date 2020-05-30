@@ -22,6 +22,8 @@ enum {
 static struct {
     int current_track;
     int next_check;
+    int is_paused;
+    int paused_track;
 } data = {TRACK_NONE, 0};
 
 static const char tracks[][32] = {
@@ -123,4 +125,20 @@ void sound_music_stop(void)
     sound_device_stop_music();
     data.current_track = TRACK_NONE;
     data.next_check = 0;
+}
+
+void sound_music_pause(void)
+{
+    sound_device_stop_music();
+    data.is_paused = 1;
+    data.paused_track = data.current_track;
+    data.current_track = TRACK_NONE;
+}
+
+void sound_music_resume(void)
+{
+    if (data.is_paused) {
+        data.is_paused = 0;
+        play_track(data.paused_track);
+    }
 }

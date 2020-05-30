@@ -13,6 +13,10 @@ void game_run(void);
 
 void game_draw(void);
 
+void game_pause(void);
+
+void game_resume(void);
+
 void game_exit_editor(void);
 
 void game_exit(void);

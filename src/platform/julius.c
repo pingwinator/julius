@@ -222,10 +222,12 @@ static void handle_window_event(SDL_WindowEvent *event, int *window_active)
 
         case SDL_WINDOWEVENT_SHOWN:
             SDL_Log("Window %d shown", (unsigned int) event->windowID);
+            game_resume();
             *window_active = 1;
             break;
         case SDL_WINDOWEVENT_HIDDEN:
             SDL_Log("Window %d hidden", (unsigned int) event->windowID);
+            game_pause();
             *window_active = 0;
             break;
     }

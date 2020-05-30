@@ -26,6 +26,7 @@
 #include "scenario/property.h"
 #include "scenario/scenario.h"
 #include "sound/city.h"
+#include "sound/music.h"
 #include "sound/system.h"
 #include "translation/translation.h"
 #include "window/editor/map.h"
@@ -234,6 +235,17 @@ void game_draw(void)
 {
     window_draw(0);
     sound_city_play();
+}
+
+void game_pause(void)
+{
+    sound_music_pause();
+    video_stop();
+}
+
+void game_resume(void)
+{
+    sound_music_resume();
 }
 
 void game_exit(void)
