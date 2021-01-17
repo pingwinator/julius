@@ -81,8 +81,8 @@ elif [ ! -z "$SDL_VERSION" ] && [ ! -z "$SDL_MIXER_VERSION" ]
 then
   if [ "$BUILD_TARGET" == "mac" ]
   then
-    install_sdl_macos "SDL2" $SDL_VERSION
-    install_sdl_macos "SDL2_mixer" $SDL_MIXER_VERSION
+    install_sdl_lib "SDL2" $SDL_VERSION
+    install_sdl_lib "SDL2_mixer" $SDL_MIXER_VERSION
   elif [ "$BUILD_TARGET" == "android" ]
   then
     install_sdl_android "SDL2" $SDL_VERSION
