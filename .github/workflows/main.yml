@@ -7,25 +7,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: Linux AppImage
-            os: ubuntu-16.04
-            BUILD_TARGET: appimage
-            DEPLOY: appimage
-          - name: Linux x64
-            os: ubuntu-18.04
-            cache-key: linux-x64
-            SDL_VERSION: 2.0.14
-            SDL_MIXER_VERSION: 2.0.4
-            BUILD_TARGET: linux
-            DEPLOY: linux
-          - name: Linux x64 (old SDL versions)
-            os: ubuntu-16.04
-            cache-key: linux-x64
-            SDL_VERSION: 2.0.0
-            SDL_MIXER_VERSION: 2.0.0
-            BUILD_TARGET: linux
-            DEPLOY: linux
-            SKIP_BINTRAY: true
           - name: macOS
             os: macos-latest
             cache-key: macos
@@ -33,21 +14,6 @@ jobs:
             SDL_MIXER_VERSION: 2.0.4
             BUILD_TARGET: mac
             DEPLOY: mac
-          - name: Nintendo Switch
-            os: ubuntu-18.04
-            BUILD_TARGET: switch
-            DEPLOY: switch
-          - name: PS Vita
-            os: ubuntu-18.04
-            BUILD_TARGET: vita
-            DEPLOY: vita
-          - name: Android
-            os: ubuntu-18.04
-            cache-key: android
-            SDL_VERSION: 2.0.14
-            SDL_MIXER_VERSION: 2.0.4
-            BUILD_TARGET: android
-            DEPLOY: android
     name: ${{ matrix.name }}
     runs-on: ${{ matrix.os }}
     env:
